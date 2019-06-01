@@ -146,9 +146,9 @@
 								<li>
 									<a href="<?php echo site_url("referensi") ?>" class="slide-item">REFERENSI</a>
 								</li>
-								<li>
+								<!-- <li>
 									<a href="<?php echo site_url("kemiripan") ?>" class="slide-item">KEMIRIPAN GEJALA</a>
-								</li>
+								</li> -->
 								 
 							</ul>
 						</li>
