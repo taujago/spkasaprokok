@@ -197,7 +197,7 @@
 						<div class="container">
 							<div class="row align-items-center flex-row-reverse">
 								<div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-									Dibuat oleh Anggriani Sinaga sebagai Syarat untuk gelar Sarjana Teknik. USTJ - Jayapura &copy; 2019 
+									Dibuat oleh Aras sebagai Syarat untuk gelar Sarjana Teknik. USTJ - Jayapura &copy; 2019 
 								</div>
 							</div>
 						</div>

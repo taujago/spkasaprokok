@@ -24,7 +24,7 @@ class konsultasi extends master_controller {
 		 
 		$content = $this->load->view($this->controller."_view_form",$data_array,true);
 
-		$this->set_title("KONSULTASI  PENYAKIT PERNAFASAN");
+		$this->set_title("KONSULTASI  PENYAKIT KARENA ASAP ROKOK");
 		$this->set_content($content);
 		$this->render();
 	}
@@ -200,8 +200,10 @@ $this->db->select("g.*")
 ->join("pemeriksaan_detail pd","pd.gejala_id = g.id")
 ->where("pemeriksaan_id",$id);
 
-$data_array['rec_gejala_hasil'] = $this->db->get();
 
+
+$data_array['rec_gejala_hasil'] = $this->db->get();
+// echo $this->db->last_query();exit;
 // ambil data penyakit hasil 
 $id_penyakit = "";
 foreach($arr_hasil as $xy => $hasil): 
@@ -209,9 +211,11 @@ foreach($arr_hasil as $xy => $hasil):
 	break;
 endforeach;
 
+// echo "id penyakit ". $id_penyakit; exit;
+
 
 // echo "id penyakit $id_penyakit"; exit;
-$this->db->where("id",$id_penyakit);
+$this->db->where("id",$arr_ref[$id_penyakit]['penyakit_id']);
 $data_array['penyakit'] = $this->db->get("penyakit")->row();
 
 // terakhir update id penyakit ke data  pemeriksaan 

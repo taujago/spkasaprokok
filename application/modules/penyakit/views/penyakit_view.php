@@ -14,7 +14,7 @@
 				<th width="5%">NO </th>
 				<th width="5%">KODE </th>
 				<th width="50%">PENYAKIT</th>
-				<th width="50%">KETERANGAN</th>
+				<th width="50%">PENCEGAHAN</th>
 				<th width="50%">PENGOBATAN</th>
 				<th width="10%">PROSES</th>
 				 
@@ -66,7 +66,7 @@ foreach($record->result() as $row) :
 					</div>
 
 					<div class="form-group">
-						<label for="keterangan" class="form-control-label">Keterangan:</label>
+						<label for="keterangan" class="form-control-label">Pencegahan:</label>
 						<input type="text"  name="keterangan" class="form-control" id="keterangan">
 
 					</div>
