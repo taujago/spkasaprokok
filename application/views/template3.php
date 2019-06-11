@@ -131,6 +131,10 @@
 						<li>
 							<a class="side-menu__item <?php echo ($this->controller=="home")?"active":""; ?>" href="<?php echo site_url("home"); ?>"><i class="side-menu__icon fa fa-home"></i><span class="side-menu__label">BERANDA </span></a>
 						</li>
+
+<?php 
+if($_SESSION['userdata'][0]['level']== 1) : 
+?>
 						<li class="slide">
 							<a class="side-menu__item <?php echo ($this->controller=="gejala" || $this->controller=="penyakit" || $this->controller=="pengetahuan")?"active":""; ?>" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-area-chart"></i><span class="side-menu__label">MASTER</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
@@ -161,6 +165,9 @@
 						<li>
 							<a class="side-menu__item <?php echo ($this->controller=="laporan")?"active":""; ?>" href="<?php echo site_url("konsultasi/laporan"); ?>"><i class="side-menu__icon fa fa-file"></i><span class="side-menu__label">REKAP HASIL KONSULTASI</span></a>
 						</li>
+
+<?php endif; ?>
+
 						<li>
 							<a class="side-menu__item <?php echo ($this->controller=="konsultasi")?"active":""; ?>" href="<?php echo site_url("konsultasi"); ?>"><i class="side-menu__icon fa fa-lightbulb-o"></i><span class="side-menu__label">KONSULTASI</span></a>
 						</li>
