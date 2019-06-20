@@ -4,7 +4,56 @@
 </div>
 <div class="card-body">
 
+
+
+<table class="table">
+	<tr><td width="20%">Tanggal Konsultasi </td>
+		<td> : <?php echo flipdate($userdata['tanggal']); ?> </td>
+	</tr>
+</table>
+
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>No.</th>
+			<TH>Penyakit</TH>
+			<th>Pencegahan </th>
+			<th>Pengobatan</th>
+			<th>Bobot</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php $n=0; 
+		foreach($arr_hasil as $id => $bobot ) : 
+		$n++; 
+		?>
+			<tr>
+				<td><?php echo $n; ?> </td>
+				<td><?php echo $arr_ref[$id]['penyakit']; ?></td>
+				<!-- <td><?php echo $arr_ref[$id]['nama']; ?></td> -->
+				
+				<td><?php echo $arr_ref[$id]['pencegahan']; ?></td>
+				<td><?php echo $arr_ref[$id]['pengobatan']; ?></td>
+				<td><?php echo number_format($bobot,2); ?></td>
+				
+			</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+
 <div class="row">
+	
+	<div class="col-md-3">
+		
+		<a target="blank" href="<?php echo site_url("konsultasi/cetak"); ?>" class="btn btn-primary"><i class="fa fa-print"></i>  CETAK </a>
+
+	</div>
+
+</div>
+
+<!-- <div class="row">
 	<div class="col-md-3"><strong> Nama Pasien </strong></div>
 	<div class="col-md-3">: <?php echo $userdata['nama']; ?> </div>
 
@@ -22,7 +71,7 @@
 	<div class="col-md-3"><strong> Tanggal Pemeriksaan </strong></div>
 	<div class="col-md-3">: <?php echo flipdate($userdata['tanggal']); ?> </div>
 
-</div>
+</div> 
 <HR />
 
 <strong>Gejala yang dialami : </strong> <br />
@@ -43,40 +92,18 @@
 
 </div>	
 </div> 
-
-
+-->
+<!-- 
 <div class="card">
 <div class="card-header">
 	<h3 class="card-title">DATA KEMIRIPAN </h3>
 </div>
 <div class="card-body">
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>No.</th>
-			<TH>Nama Pasien</TH>
-			<th>Range Nilai </th>
-			<th>Kriteria</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php $n=0; 
-		foreach($arr_hasil as $id => $bobot ) : 
-		$n++; 
-		?>
-			<tr>
-				<td><?php echo $n; ?> </td>
-				<td><?php echo $arr_ref[$id]['nama']; ?></td>
-				<td><?php echo number_format($bobot,2); ?></td>
-				<td><?php echo $arr_ref[$id]['penyakit']; ?></td>
-			</tr>
-		<?php endforeach; ?>
-	</tbody>
-</table>
+
 </div>
 </div>
  
-
+ -->
 
 
 <!-- 

@@ -92,7 +92,7 @@ endforeach;
 	 // redirect("konsultasi/detail/$id_pemeriksaan");
 
 // ambil data referensi pasien lama 
-  $this->db->select("r.*, p.penyakit")
+  $this->db->select("r.*, p.penyakit, p.pengobatan, p.keterangan")
   ->from('referensi r')
   ->join('penyakit p','p.id = r.penyakit_id');
   $res = $this->db->get();
@@ -106,7 +106,9 @@ endforeach;
   			"umur" => $row->umur,
   			"jk"   => $row->jk,
   			"penyakit_id" => $row->penyakit_id,
-  			"penyakit" => $row->penyakit
+  			"penyakit" => $row->penyakit,
+        "pengobatan" => $row->pengobatan,
+        "pencegahan" => $row->keterangan
   		);
 
   		$this->db->where("referensi_id",$row->id);
@@ -181,7 +183,7 @@ $data_array['arr_hasil'] = $arr_hasil;
 
 // show_array($ref_gejala);
 // show_array($post);
-// show_array($arr_ref);   
+// show_array($arr_ref);    exit;
 
 // show_array($arr_hasil);  exit;
 
@@ -206,8 +208,10 @@ $data_array['rec_gejala_hasil'] = $this->db->get();
 // echo $this->db->last_query();exit;
 // ambil data penyakit hasil 
 $id_penyakit = "";
+$skor = "";
 foreach($arr_hasil as $xy => $hasil): 
 	$id_penyakit = $xy; 
+  $skor = $hasil;
 	break;
 endforeach;
 
@@ -217,11 +221,14 @@ endforeach;
 // echo "id penyakit $id_penyakit"; exit;
 $this->db->where("id",$arr_ref[$id_penyakit]['penyakit_id']);
 $data_array['penyakit'] = $this->db->get("penyakit")->row();
+$data_array['penyakit']->skor = $skor;
 
 // terakhir update id penyakit ke data  pemeriksaan 
 $this->db->where("id",$id);
-$this->db->update("pemeriksaan",array("penyakit_id"=>$id_penyakit));
+$this->db->update("pemeriksaan",array("penyakit_id"=>$arr_ref[$id_penyakit]['penyakit_id']));
 
+
+$_SESSION['data_array'] = $data_array;
 
 $content = $this->load->view($this->controller."_view_result",$data_array,true);
 
@@ -230,6 +237,13 @@ $this->set_content($content);
 $this->render();
 
 
+}
+
+function cetak(){
+  $data_array = $_SESSION['data_array'];
+
+  // unset($data_array['rec_gejala_hasil']);   show_array($data_array);
+  $this->load->view("konsultasi_view_print",$data_array);
 }
 
 // function list(){
