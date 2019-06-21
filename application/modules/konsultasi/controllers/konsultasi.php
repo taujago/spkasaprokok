@@ -121,45 +121,45 @@ endforeach;
   		foreach($ref_gejala as $gejala_id => $bobot): 
 
 
-        $this->db->where("gejala_id_1",$gejala_id);
-        $jumlah = $this->db->get("kemiripan")->num_rows();
+        // $this->db->where("gejala_id_1",$gejala_id);
+        // $jumlah = $this->db->get("kemiripan")->num_rows();
 
 
 
-        if(in_array($gejala_id,$arr_ref[$row->id]['gejala']) && $jumlah > 0 ) {
-            // echo "$gejala_id adaaa.. di dalam db  <br />";
+        // if(in_array($gejala_id,$arr_ref[$row->id]['gejala']) && $jumlah > 0 ) {
+        //     // echo "$gejala_id adaaa.. di dalam db  <br />";
 
-            $ids = implode(",",$post['gejala_id']);
-            $sql = "select * from kemiripan where gejala_id_1 ='$gejala_id' and gejala_id_2 in($ids)";
-            $rx = $this->db->query($sql);
+        //     $ids = implode(",",$post['gejala_id']);
+        //     $sql = "select * from kemiripan where gejala_id_1 ='$gejala_id' and gejala_id_2 in($ids)";
+        //     $rx = $this->db->query($sql);
 
-            // echo $this->db->last_query()."<br />";
-            if($rx->num_rows() == 1) {
-                $dx = $rx->row();
-                $arr_ref[$row->id]['kemiripan'][$gejala_id] = $dx->bobot;
-            }
-            else if($rx->num_rows() == 0 ) {
-              $arr_ref[$row->id]['kemiripan'][$gejala_id] = 0;
-            }
-            else if($rx->num_rows() > 1 ) {
-                $tmp = 0; 
-                foreach($rx->result() as $rwx): 
-                    if($rwx->bobot > $tmp ) {
-                      $tmp = $rwx->bobot;
-                    }
-                endforeach;
-                $arr_ref[$row->id]['kemiripan'][$gejala_id] = $tmp;
-            }
+        //     // echo $this->db->last_query()."<br />";
+        //     if($rx->num_rows() == 1) {
+        //         $dx = $rx->row();
+        //         $arr_ref[$row->id]['kemiripan'][$gejala_id] = $dx->bobot;
+        //     }
+        //     else if($rx->num_rows() == 0 ) {
+        //       $arr_ref[$row->id]['kemiripan'][$gejala_id] = 0;
+        //     }
+        //     else if($rx->num_rows() > 1 ) {
+        //         $tmp = 0; 
+        //         foreach($rx->result() as $rwx): 
+        //             if($rwx->bobot > $tmp ) {
+        //               $tmp = $rwx->bobot;
+        //             }
+        //         endforeach;
+        //         $arr_ref[$row->id]['kemiripan'][$gejala_id] = $tmp;
+        //     }
 
-        }
-        else { 
+        // }
+        // else { 
 
           // echo "tidakada $gejala_id <br />";
 
   			 $x = (in_array($gejala_id,$arr_ref[$row->id]['gejala']))?1:0;
   			 $y = (in_array($gejala_id,$post['gejala_id']))?1:0; 
          $arr_ref[$row->id]['kemiripan'][$gejala_id] = !($x xor $y);
-        }
+        // }
 
   			 
         
