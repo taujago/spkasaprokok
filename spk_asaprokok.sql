@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2019 at 01:07 PM
+-- Generation Time: Jun 21, 2019 at 01:38 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.36
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `gejala`
 --
 
+DROP TABLE IF EXISTS `gejala`;
 CREATE TABLE IF NOT EXISTS `gejala` (
   `id` int(11) NOT NULL,
   `gejala` varchar(255) NOT NULL,
@@ -75,9 +76,43 @@ INSERT INTO `gejala` (`id`, `gejala`, `kode`, `bobot`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kemiripan`
+--
+
+DROP TABLE IF EXISTS `kemiripan`;
+CREATE TABLE IF NOT EXISTS `kemiripan` (
+  `id` int(11) NOT NULL,
+  `gejala_id_1` int(11) NOT NULL,
+  `gejala_id_2` int(11) NOT NULL,
+  `bobot` float NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kemiripan`
+--
+
+INSERT INTO `kemiripan` (`id`, `gejala_id_1`, `gejala_id_2`, `bobot`) VALUES
+(1, 121, 121, 1),
+(2, 121, 136, 0.5),
+(3, 121, 125, 0.75),
+(4, 125, 125, 1),
+(5, 125, 136, 0.25),
+(6, 125, 121, 0.75),
+(7, 136, 136, 1),
+(8, 136, 125, 0.25),
+(9, 136, 121, 0.5),
+(10, 122, 122, 1),
+(11, 122, 149, 0.5),
+(12, 149, 149, 1),
+(13, 149, 122, 0.5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `konsultasi`
 --
 
+DROP TABLE IF EXISTS `konsultasi`;
 CREATE TABLE IF NOT EXISTS `konsultasi` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -112,12 +147,13 @@ INSERT INTO `konsultasi` (`id`, `user_id`, `waktu`, `pesan`, `pemeriksaan_id`) V
 -- Table structure for table `pemeriksaan`
 --
 
+DROP TABLE IF EXISTS `pemeriksaan`;
 CREATE TABLE IF NOT EXISTS `pemeriksaan` (
   `id` int(11) NOT NULL,
   `tanggal` date DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   `penyakit_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pemeriksaan`
@@ -125,7 +161,11 @@ CREATE TABLE IF NOT EXISTS `pemeriksaan` (
 
 INSERT INTO `pemeriksaan` (`id`, `tanggal`, `user_id`, `penyakit_id`) VALUES
 (44, '2019-05-30', 1, 4),
-(45, '2019-06-01', 1, 7);
+(45, '2019-06-01', 1, 70),
+(46, '2019-06-14', 1, 70),
+(47, '2019-06-20', 1, 70),
+(48, '2019-06-21', 1, 70),
+(49, '2019-06-21', 1, 70);
 
 -- --------------------------------------------------------
 
@@ -133,11 +173,12 @@ INSERT INTO `pemeriksaan` (`id`, `tanggal`, `user_id`, `penyakit_id`) VALUES
 -- Table structure for table `pemeriksaan_detail`
 --
 
+DROP TABLE IF EXISTS `pemeriksaan_detail`;
 CREATE TABLE IF NOT EXISTS `pemeriksaan_detail` (
   `id` int(11) NOT NULL,
   `pemeriksaan_id` int(11) NOT NULL,
   `gejala_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=190 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pemeriksaan_detail`
@@ -149,7 +190,20 @@ INSERT INTO `pemeriksaan_detail` (`id`, `pemeriksaan_id`, `gejala_id`) VALUES
 (186, 45, 163),
 (187, 45, 155),
 (188, 45, 176),
-(189, 45, 178);
+(189, 45, 178),
+(190, 46, 164),
+(191, 46, 173),
+(192, 46, 183),
+(193, 46, 159),
+(194, 47, 163),
+(195, 47, 167),
+(196, 47, 155),
+(197, 48, 166),
+(198, 48, 178),
+(199, 48, 158),
+(200, 49, 174),
+(201, 49, 178),
+(202, 49, 158);
 
 -- --------------------------------------------------------
 
@@ -157,6 +211,7 @@ INSERT INTO `pemeriksaan_detail` (`id`, `pemeriksaan_id`, `gejala_id`) VALUES
 -- Table structure for table `pengetahuan`
 --
 
+DROP TABLE IF EXISTS `pengetahuan`;
 CREATE TABLE IF NOT EXISTS `pengetahuan` (
   `id` int(11) NOT NULL,
   `id_penyakit` int(11) NOT NULL,
@@ -285,6 +340,7 @@ INSERT INTO `pengetahuan` (`id`, `id_penyakit`, `id_gejala`) VALUES
 -- Table structure for table `pengguna`
 --
 
+DROP TABLE IF EXISTS `pengguna`;
 CREATE TABLE IF NOT EXISTS `pengguna` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -315,6 +371,7 @@ INSERT INTO `pengguna` (`id`, `username`, `password`, `level`, `nama`, `hp`, `al
 -- Table structure for table `penyakit`
 --
 
+DROP TABLE IF EXISTS `penyakit`;
 CREATE TABLE IF NOT EXISTS `penyakit` (
   `id` int(11) NOT NULL,
   `kode` varchar(10) NOT NULL,
@@ -350,6 +407,7 @@ INSERT INTO `penyakit` (`id`, `kode`, `penyakit`, `pengobatan`, `keterangan`, `g
 -- Table structure for table `referensi`
 --
 
+DROP TABLE IF EXISTS `referensi`;
 CREATE TABLE IF NOT EXISTS `referensi` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
@@ -374,6 +432,7 @@ INSERT INTO `referensi` (`id`, `nama`, `umur`, `jk`, `penyakit_id`) VALUES
 -- Table structure for table `referensi_detail`
 --
 
+DROP TABLE IF EXISTS `referensi_detail`;
 CREATE TABLE IF NOT EXISTS `referensi_detail` (
   `id` int(11) NOT NULL,
   `gejala_id` int(11) NOT NULL,
@@ -416,6 +475,7 @@ INSERT INTO `referensi_detail` (`id`, `gejala_id`, `referensi_id`) VALUES
 -- Table structure for table `tmp`
 --
 
+DROP TABLE IF EXISTS `tmp`;
 CREATE TABLE IF NOT EXISTS `tmp` (
   `id_penyakit` int(11) NOT NULL,
   `skor` float NOT NULL
@@ -450,6 +510,12 @@ INSERT INTO `tmp` (`id_penyakit`, `skor`) VALUES
 -- Indexes for table `gejala`
 --
 ALTER TABLE `gejala`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kemiripan`
+--
+ALTER TABLE `kemiripan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -511,6 +577,11 @@ ALTER TABLE `referensi_detail`
 ALTER TABLE `gejala`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=187;
 --
+-- AUTO_INCREMENT for table `kemiripan`
+--
+ALTER TABLE `kemiripan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+--
 -- AUTO_INCREMENT for table `konsultasi`
 --
 ALTER TABLE `konsultasi`
@@ -519,12 +590,12 @@ ALTER TABLE `konsultasi`
 -- AUTO_INCREMENT for table `pemeriksaan`
 --
 ALTER TABLE `pemeriksaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `pemeriksaan_detail`
 --
 ALTER TABLE `pemeriksaan_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=190;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=203;
 --
 -- AUTO_INCREMENT for table `pengetahuan`
 --
