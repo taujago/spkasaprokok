@@ -148,7 +148,7 @@ if($_SESSION['userdata'][0]['level']== 1) :
 									<a href="<?php echo site_url("penyakit/pengetahuan") ?>" class="slide-item">PENGETAHUAN</a>
 								</li>
 								<li>
-									<a href="<?php echo site_url("referensi") ?>" class="slide-item">REFERENSI</a>
+									<a href="<?php echo site_url("referensi") ?>" class="slide-item">KASUS LAMA</a>
 								</li>
 								<!-- <li>
 									<a href="<?php echo site_url("kemiripan") ?>" class="slide-item">KEMIRIPAN GEJALA</a>

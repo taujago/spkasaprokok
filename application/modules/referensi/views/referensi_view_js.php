@@ -44,7 +44,7 @@ $("#gejala_id").select2();
 
 	function tambahbaru(){
 		$("#formModal").modal('show');
-		$("#judul").html('TAMBAH DATA REFERENSI ');
+		$("#judul").html('TAMBAH DATA PENYAKIT LAMA ');
 		$("#kode").val('');
 		$("#penyakit").val('');
 		v_url = '<?php echo site_url("$this->controller/save") ?>';
@@ -71,7 +71,7 @@ $("#gejala_id").select2();
 
 
 function edit(id,nama,umur,jk){
-	$("#judul").html('EDIT DATA REFENSI ');
+	$("#judul").html('EDIT DATA PENYAKIT LAMA ');
 	
 	v_url = '<?php echo site_url("$this->controller/update") ?>';
 
