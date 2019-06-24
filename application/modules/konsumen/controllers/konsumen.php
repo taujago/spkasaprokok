@@ -144,13 +144,13 @@ function update(){
 			if($res){
 				$ret  = array(
 				"error"=>false,
-				"message"=>"Data konsumen berhasil diupdate" );
+				"message"=>"Data pengguna berhasil diupdate" );
 
 			}
 			else {
 				$ret  = array(
 				"error"=>true,
-				"message"=>"data konsumen gagal diupdate ".mysql_error() );
+				"message"=>"data pengguna gagal diupdate ".mysql_error() );
 			}
 
 
@@ -173,7 +173,7 @@ function hapus($id) {
 	$this->db->where("id",$id);
 	$res = $this->db->delete("alternatif");
 	if($res){
-		$ret = array("error"=>false,"message"=>"Data harga berhasil dihapus");
+		$ret = array("error"=>false,"message"=>"Data pengguna berhasil dihapus");
 	}
 	else {
 		$ret = array("error"=>true,"message"=>"Data gagal dihapus".mysql_error());

@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 		
 		<!-- Title -->
-		<title>SISTEM PENDUKUNG KEPUTUSAN</title>
+		<title>SELAMAT DATANG PADA SISTEM PAKAR MENDIAGNOSA PENYAKIT YANG DISEBABKAN OLEH ASAP ROKOK</title>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/fonts/fonts/font-awesome.min.css">
 		
 		<!-- Font Family -->
@@ -57,22 +57,16 @@ html {
 							</div>
 							<form id="frmlogin" class="card" method="post">
 								<div class="card-body p-6">
-									<div class="card-title text-center">Silahkan login</div>
+									<div class="card-title text-center">Silahkan Login</div>
 									<div class="form-group">
-										<label for="username" class="form-label">Nama pengguna</label>
+										<label for="username" class="form-label">Nama Pengguna</label>
 										<input type="text" class="form-control" id="username" name="username"  placeholder="Nama penggguna">
 									</div>
 									<div class="form-group">
-										<label for="password" class="form-label">Kata sandi
-											<a href="<?php echo site_url("login/lupapassword"); ?>" class="float-right small">Lupa password</a>
+										<label for="password" class="form-label">Kata Sandi
+											<a href="<?php echo site_url("login/lupapassword"); ?>" class="float-right small"></a>
 										</label>
 										<input type="password" class="form-control" id="password"  name="password" placeholder="Kata sandi">
-									</div>
-									<div class="form-group">
-										<label class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" />
-											<span class="custom-control-label">Ingat saya </span>
-										</label>
 									</div>
 									<div class="form-footer">
 										<button type="submit" class="btn btn-primary btn-block"> <i class="fa fa-check"></i> Masuk </button>

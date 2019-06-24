@@ -17,7 +17,7 @@
 
 
 		<!-- Title -->
-		<title>Sistem Pendukung keputusan || Diagnosa Penyakit Pernafasan </title>
+		<title>Sistem Pakar || Diagnosa Penyakit Yang Disebabkan Oleh Asap Rokok </title>
 		<link rel="stylesheet" href="<?php echo base_url("dark"); ?>/fonts/fonts/font-awesome.min.css">
 
 		<!-- Font Family -->
@@ -131,14 +131,14 @@
 					<ul class="side-menu">
 						 
 						<li>
-							<a class="side-menu__item <?php echo ($this->controller=="home")?"active":""; ?>" href="<?php echo site_url("home"); ?>"><i class="side-menu__icon fa fa-home"></i><span class="side-menu__label">BERANDA </span></a>
+							<a class="side-menu__item <?php echo ($this->controller=="home")?"active":""; ?>" href="<?php echo site_url("home"); ?>"><i class="side-menu__icon fa fa-home"></i><span class="side-menu__label">HOME </span></a>
 						</li>
 
 <?php 
 if($_SESSION['userdata'][0]['level']== 1) : 
 ?>
 						<li class="slide">
-							<a class="side-menu__item <?php echo ($this->controller=="gejala" || $this->controller=="penyakit" || $this->controller=="pengetahuan")?"active":""; ?>" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-area-chart"></i><span class="side-menu__label">MASTER</span><i class="angle fa fa-angle-right"></i></a>
+							<a class="side-menu__item <?php echo ($this->controller=="gejala" || $this->controller=="penyakit" || $this->controller=="pengetahuan")?"active":""; ?>" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-area-chart"></i><span class="side-menu__label">DATA</span><i class="angle fa fa-angle-right"></i></a>
 							<ul class="slide-menu">
 								<li>
 									<a href="<?php echo site_url("gejala") ?>" class="slide-item">GEJALA</a>
@@ -147,7 +147,7 @@ if($_SESSION['userdata'][0]['level']== 1) :
 									<a href="<?php echo site_url("penyakit") ?>" class="slide-item">PENYAKIT </a>
 								</li>
 								<li>
-									<a href="<?php echo site_url("penyakit/pengetahuan") ?>" class="slide-item">PENGETAHUAN</a>
+									<a href="<?php echo site_url("penyakit/pengetahuan") ?>" class="slide-item">BASIS PENGETAHUAN</a>
 								</li>
 								<li>
 									<a href="<?php echo site_url("referensi") ?>" class="slide-item">KASUS LAMA</a>
@@ -165,7 +165,7 @@ if($_SESSION['userdata'][0]['level']== 1) :
 							<a class="side-menu__item <?php echo ($this->controller=="konsumen")?"active":""; ?>" href="<?php echo site_url("konsumen"); ?>"><i class="side-menu__icon fa fa-user"></i><span class="side-menu__label">DATA PASIEN</span></a>
 						</li>
 						<li>
-							<a class="side-menu__item <?php echo ($this->controller=="laporan")?"active":""; ?>" href="<?php echo site_url("konsultasi/laporan"); ?>"><i class="side-menu__icon fa fa-file"></i><span class="side-menu__label">REKAP HASIL KONSULTASI</span></a>
+							<a class="side-menu__item <?php echo ($this->controller=="laporan")?"active":""; ?>" href="<?php echo site_url("konsultasi/laporan"); ?>"><i class="side-menu__icon fa fa-file"></i><span class="side-menu__label">LAPORAN JENIS PENYAKIT</span></a>
 						</li>
 
 <?php endif; ?>
@@ -212,7 +212,7 @@ if($_SESSION['userdata'][0]['level']== 1) :
 						<div class="container">
 							<div class="row align-items-center flex-row-reverse">
 								<div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-									Dibuat oleh Aras sebagai Syarat untuk gelar Sarjana Teknik. USTJ - Jayapura &copy; 2019 
+									USTJ - Jayapura &copy; 2019 
 								</div>
 							</div>
 						</div>

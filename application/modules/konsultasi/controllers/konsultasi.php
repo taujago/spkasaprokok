@@ -24,7 +24,7 @@ class konsultasi extends master_controller {
 		 
 		$content = $this->load->view($this->controller."_view_form",$data_array,true);
 
-		$this->set_title("KONSULTASI  PENYAKIT KARENA ASAP ROKOK");
+		$this->set_title("MASUKKAN GEJALA YANG ANDA RASAKAN PADA KOLOM DIBAWAH INI:");
 		$this->set_content($content);
 		$this->render();
 	}
@@ -271,7 +271,7 @@ $data_array['record'] = $this->db->query($sql);
 
 $content = $this->load->view($this->controller."_laporan_view",$data_array,true);
 
-$this->set_title("LAPORAN REKAPITULASI HASIL PEMERIKSAAN");
+$this->set_title("LAPORAN JENIS PENYAKIT");
 $this->set_content($content);
 $this->render();
 

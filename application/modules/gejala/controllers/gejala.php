@@ -19,7 +19,7 @@ class gejala extends master_controller {
 		 
 		$content = $this->load->view($this->controller."_view",$data_array,true);
 
-		$this->set_title("DATA GEJALA PENYAKIT");
+		$this->set_title("DATA GEJALA");
 		$this->set_content($content);
 		$this->render();
 	}
@@ -147,7 +147,7 @@ function hapus($id) {
 		$this->db->delete("pengetahuan");
 
 
-		$ret = array("error"=>false,"message"=>"Data harga berhasil dihapus");
+		$ret = array("error"=>false,"message"=>"Data gejala berhasil dihapus");
 	}
 	else {
 		$ret = array("error"=>true,"message"=>"Data gagal dihapus".mysql_error());
