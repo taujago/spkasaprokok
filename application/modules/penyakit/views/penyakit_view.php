@@ -13,9 +13,10 @@
 			<tr>
 				<th width="5%">NO </th>
 				<th width="5%">KODE </th>
-				<th width="50%">PENYAKIT</th>
-				<th width="50%">PENCEGAHAN</th>
-				<th width="50%">PENGOBATAN</th>
+				<th width="10%">PENYAKIT</th>
+				<th width="20%">PENCEGAHAN</th>
+				<th width="20%">PENGOBATAN</th>
+				<th width="10%">GAMBAR</th>
 				<th width="10%">PROSES</th>
 				 
 			</tr>
@@ -24,6 +25,7 @@
 <?php 
 $n=0;
 foreach($record->result() as $row) : 
+	$image = (!empty($row->gambar))?$row->gambar:"noimage.png";
 	$n++;
 ?>
 			<tr>
@@ -32,6 +34,7 @@ foreach($record->result() as $row) :
 				<td><?php echo $row->penyakit; ?></td>
 				<td><?php echo $row->keterangan; ?></td>
 				<td><?php echo $row->pengobatan; ?></td>
+				<td><img width="70px" height="70px" src="<?php echo base_url("uploads/$image") ?>"></td>
 				<td>
 					<a href="#!"  onclick="edit('<?php echo $row->id; ?>','<?php echo $row->kode; ?>','<?php echo $row->penyakit; ?>','<?php echo $row->keterangan; ?>','<?php echo $row->pengobatan; ?>');"  class="btn btn-warning text-light"><i class="fa fa-pencil"></i>Edit</a>
 					<a href="#!" onclick="hapus('<?php echo $row->id; ?>');"  class="btn btn-danger text-light"><i class="fa fa-trash"></i>Hapus	</a>
@@ -53,8 +56,9 @@ foreach($record->result() as $row) :
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
+		<form id="frmkriteria" method="post" enctype="multipart/form-data" >
+
 			<div class="modal-body">
-				<form id="frmkriteria">
 					<div class="form-group">
 						<label for="kode" class="form-control-label">Kode :</label>
 						<input type="text" name="kode" class="form-control" id="kode">
@@ -78,6 +82,12 @@ foreach($record->result() as $row) :
 					</div>
 
 					<div class="form-group">
+						<label for="gambar" class="form-control-label">Gambar :</label>
+						<input type="file"  name="gambar" class="form-control" id="gambar">
+
+					</div>
+
+					<div class="form-group">
 						<label for="gejala" class="form-control-label">Gejala :</label>
 
 						<?php 
@@ -92,13 +102,14 @@ foreach($record->result() as $row) :
 
 <input type="hidden" name="id" id="id">
 
-				</form>
+				
 			</div>
 			<div class="modal-footer">
 				
-				<button id="btnsimpan" type="button" class="btn btn-primary"><i class="fa fa fa-paper-plane"></i> SIMPAN</button>
+				<button id="btnsimpan" type="submit" class="btn btn-primary"><i class="fa fa fa-paper-plane"></i> SIMPAN</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>

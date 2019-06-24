@@ -83,6 +83,8 @@
 
 <script src="<?php echo base_url(); ?>/assets/sweetalert2/sweetalert2.js"></script>
 
+<script src="<?php echo base_url(); ?>/assets/jqueryform/jquery.form.min.js"></script>
+
 	</head>
 	<body class="app sidebar-mini rtl">
 		<div id="global-loader" ></div>
@@ -167,11 +169,17 @@ if($_SESSION['userdata'][0]['level']== 1) :
 						</li>
 
 <?php endif; ?>
+<?php 
+// if($_SESSION['userdata'][0]['level']== 0) : 
+?>
+
 
 						<li>
 							<a class="side-menu__item <?php echo ($this->controller=="konsultasi")?"active":""; ?>" href="<?php echo site_url("konsultasi"); ?>"><i class="side-menu__icon fa fa-lightbulb-o"></i><span class="side-menu__label">KONSULTASI</span></a>
 						</li>
-
+<?php 
+// endif; 
+?>
 						<li>
 							<a class="side-menu__item <?php echo ($this->controller=="konsultasi")?"active":""; ?>" href="<?php echo site_url("konsultasi/listview"); ?>"><i class="side-menu__icon fa fa-window-restore"></i><span class="side-menu__label">LIHAT DATA KONSULTASI</span></a>
 						</li>

@@ -10,6 +10,23 @@
 	<tr><td width="20%">Tanggal Konsultasi </td>
 		<td> : <?php echo flipdate($userdata['tanggal']); ?> </td>
 	</tr>
+	<tr>
+		<td>Gejala yang dialami
+		</td>
+		<td>
+			<ol>
+			<?php 
+			foreach($rec_gejala_hasil->result() as $row ) : 
+			?>
+
+			<li>
+				<?php echo $row->kode." ".$row->gejala;  ?>
+			</li>
+			
+		<?php endforeach; ?>
+		</ol>
+		</td>
+	</tr>
 </table>
 
 
@@ -28,6 +45,7 @@
 		<?php $n=0; 
 		foreach($arr_hasil as $id => $bobot ) : 
 		$n++; 
+		if($n==2) break;
 		?>
 			<tr>
 				<td><?php echo $n; ?> </td>

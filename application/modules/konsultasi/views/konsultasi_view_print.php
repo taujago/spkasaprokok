@@ -53,6 +53,7 @@
 		<?php $n=0; 
 		foreach($arr_hasil as $id => $bobot ) : 
 		$n++; 
+		if($n==2) break;
 		?>
 			<tr>
 				<td><?php echo $n; ?> </td>

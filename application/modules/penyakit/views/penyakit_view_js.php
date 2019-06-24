@@ -6,13 +6,45 @@ $("#tabel").dataTable();
 
 $("#id_gejala").select2();
 
-	$("#btnsimpan").click(function(){
-		$.ajax({
-			url : v_url,
-			data : $("#frmkriteria").serialize(),
-			dataType : 'json',
-			type : 'post',
-			success : function(obj){
+	// $("#btnsimpan").click(function(){
+	// 	$.ajax({
+	// 		url : v_url,
+	// 		data : $("#frmkriteria").serialize(),
+	// 		dataType : 'json',
+	// 		type : 'post',
+	// 		success : function(obj){
+
+	// 			if(obj.error==false) {
+	// 				$("#formModal").modal('hide');
+	// 				// swal.fire('Info',obj.message,'success');
+
+	// 				swal.fire({title: "Info", text: obj.message , type: "success"}).then(function(){
+
+	// 					location.reload();
+
+	// 				});
+					
+	// 				// 
+	// 			}
+	// 			else {
+	// 				swal.fire('Errr',obj.message,'danger');
+	// 			}
+
+
+	// 		}
+	// 	});
+	// });
+
+
+$("#frmkriteria").submit(function(){ 
+
+
+
+	 $(this).ajaxSubmit({
+
+	 	 url : v_url,
+	 	 dataType : 'json',
+	 	 success : function(obj){
 
 				if(obj.error==false) {
 					$("#formModal").modal('hide');
@@ -27,15 +59,22 @@ $("#id_gejala").select2();
 					// 
 				}
 				else {
-					swal.fire('Errr',obj.message,'danger');
+					console.log(obj.message);
+					swal.fire('Error',obj.message,'error');
 				}
+	 	 	 
+	 	 }
 
+	 });
+ 
 
-			}
-		});
-	});
+	 
+ 
 
+ 
+ return false;
 
+});
 
 
 

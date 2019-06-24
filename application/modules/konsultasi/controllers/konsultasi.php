@@ -170,6 +170,10 @@ $this->db->select("g.*")
 ->where("pemeriksaan_id",$id);
 
 
+$this->db->_protect_identifiers = FALSE;
+$this->db->order_by("cast(substring(kode,3,3) as SIGNED )",true);
+
+
 
 $data_array['rec_gejala_hasil'] = $this->db->get();
 // echo $this->db->last_query();exit;
