@@ -22,6 +22,7 @@ session_start();
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
+// test perubahan 
 	define('ENVIRONMENT', 'development');
 	// define('ENVIRONMENT', 'production');
 /*
