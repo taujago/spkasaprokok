@@ -344,7 +344,7 @@ $data_array['data_gejala'] = $data_gejala;
 // show_array($data_array['data_gejala']); exit;
 $content = $this->load->view($this->controller."_pengetahuan_view",$data_array,true);
 
-$this->set_title("BASIS PENGETAHUAN");
+$this->set_title("PERSAMAAN JENIS PENYAKIT DAN GEJALA");
 $this->set_content($content);
 $this->render();
 
