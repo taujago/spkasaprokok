@@ -35,7 +35,12 @@
 		<tr><td></td> <td> Nama Penyakit </td> <td>: <?php echo $penyakit->penyakit;  ?> </td></tr>
 		<tr><td></td> <td> Nilai Perhitungan CBR </td> <td>: <?php echo $penyakit->skor; ?></td></tr>
  	</table>
-
+<hr />
+<?php 
+// show_array($penyakit);
+$image = (empty($penyakit->gambar))?"noimage.png":$penyakit->gambar;
+?>
+<img width="50%" src="<?php echo base_url("uploads/$image"); ?>" />
 
  	<br />
  	<br />

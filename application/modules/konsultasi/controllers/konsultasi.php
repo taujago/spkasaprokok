@@ -192,6 +192,8 @@ endforeach;
 // echo "id penyakit $id_penyakit"; exit;
 $this->db->where("id",$arr_ref[$id_penyakit]['penyakit_id']);
 $data_array['penyakit'] = $this->db->get("penyakit")->row();
+show_array($data_array['penyakit']);
+// echo $this->db->last_query(); exit;
 $data_array['penyakit']->skor = $skor;
 
 // terakhir update id penyakit ke data  pemeriksaan 
@@ -212,6 +214,7 @@ $this->render();
 
 function cetak(){
   $data_array = $_SESSION['data_array'];
+//   show_array($data_array);exit;
 
   // unset($data_array['rec_gejala_hasil']);   show_array($data_array);
   $this->load->view("konsultasi_view_print",$data_array);
