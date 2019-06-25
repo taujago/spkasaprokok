@@ -1,43 +1,58 @@
-<table class="table-striped table">
-	<thead>
-		<tr>
-			<th rowspan="2">No. </th>
-			<th rowspan="2">Penyakit </th>
-			<th colspan="2">Jumlah Pasien
-			<th rowspan="2">Jumlah </th>
+<form id="frmcari">
+<div class="row">
 
-		</tr>
-		<tr>
-			<th>P </th>
-			<th>L </th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php 
-		$n=0;
+<div class="col-md-3">
+	<div class="form-group">
+		<label>Bulan </label>
+		<?php
+			$ar = array(1=>"JANUARI","FEBRUARI","MARET","APRIL","MEI",
+						"JUNI","JULI","AGUSTUS","SEPTEMBER","NOVEMBER","DESEMBER");
+			echo form_dropdown("bulan",$ar,date("m"),'id="bulan" class="form-control"');
 
-		$tl=0; 
-		$tp=0;
+		 ?>
+	</div>
+</div>
 
-		foreach($record->result() as $row) : 
-		$tl += $row->L;
-		$tp += $row->P; 
-		$n++;
-		?>
-		<tr>
-			<td><?php echo $n; ?></td>
-			<td><?php echo $row->penyakit; ?></td>
-			<td><?php echo $row->L; ?></td>
-			<td><?php echo $row->P; ?></td>
-			<td><?php echo $row->jumlah; ?></td>
-		</tr>
-	<?php endforeach; ?>
-	<tr>
-		<td colspan="2"><strong>Total </strong></td>
-		<td><?php echo $tp; ?></td>
-		<td><?php echo $tl; ?></td>
-		<td><?php echo ($tl+$tp); ?></td>
+<div class="col-md-3">
+	<div class="form-group">
+		<label>Tahun </label>
+		 <input value="<?php echo date('Y'); ?>" type="text" name="tahun" id="tahun" class="form-control" />
+	</div>
+</div>
 
-	</tr>
-	</tbody>
-</table>
+<div class="col-md-3">
+	<div class="form-group">
+		<label>&nbsp; </label>
+		 <button id="btntampil" type="button" class="btn btn-block btn-primary"><i class="fa fa-list"></i> TAMPILKAN</button>
+	</div>
+</div>
+	
+</div>
+</form>
+
+
+<div class="row">
+	<div class="col-md-12" id="hasil">
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	$("#btntampil").click(function(e){
+		e.preventDefault();
+		$.ajax({
+			url : '<?php echo site_url("$this->controller/get_laporan") ?>',
+			data : $("#frmcari").serialize(),
+			type : 'post',
+			success : function(htmldata) {
+				$("#hasil").html(htmldata);
+			}
+		});
+	});
+});
+
+</script>
+
+

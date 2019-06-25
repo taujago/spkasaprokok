@@ -192,7 +192,7 @@ endforeach;
 // echo "id penyakit $id_penyakit"; exit;
 $this->db->where("id",$arr_ref[$id_penyakit]['penyakit_id']);
 $data_array['penyakit'] = $this->db->get("penyakit")->row();
-show_array($data_array['penyakit']);
+// show_array($data_array['penyakit']);
 // echo $this->db->last_query(); exit;
 $data_array['penyakit']->skor = $skor;
 
@@ -256,27 +256,37 @@ function laporan(){
 
   $this->method = "laporan";
 
-$sql = " select * from ( 
-SELECT p.*, 
-       count(pm.id) as jumlah , 
-      sum( if(u.jk='L',1,0)) as L,
-      sum( if(u.jk='P',1,0)) as P     
-  
-    FROM penyakit p 
-left join pemeriksaan pm on p.id = pm.penyakit_id
-left join pengguna u on u.id = pm.user_id 
-  group by p.id 
-  ) x 
-  order by x.jumlah desc
-";
-
-$data_array['record'] = $this->db->query($sql);
+$data_array = array();
 
 $content = $this->load->view($this->controller."_laporan_view",$data_array,true);
 
 $this->set_title("LAPORAN JENIS PENYAKIT");
 $this->set_content($content);
 $this->render();
+
+
+}
+
+function get_laporan(){
+  $post = $this->input->post();
+  extract($post);
+$sql = " 
+SELECT p.*, 
+       count(pm.id) as jumlah , 
+      sum( if(u.jk='L',1,0)) as L,
+      sum( if(u.jk='P',1,0)) as P     
+  
+    FROM penyakit p 
+ join pemeriksaan pm on p.id = pm.penyakit_id
+ join pengguna u on u.id = pm.user_id 
+ where year(tanggal) = '$tahun'
+ and month(tanggal) = '$bulan'
+  group by p.id 
+   
+";
+
+$data_array['record'] = $this->db->query($sql);
+$this->load->view($this->controller."_laporan_table_view",$data_array);
 
 
 }
