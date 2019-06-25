@@ -20,10 +20,10 @@ class login extends CI_Controller {
 			$_SESSION['userdata'] = $res->result_array();
 			$_SESSION['login'] = true;
 			// $this->session->set_userdata('login',true);
-			$ret = array("error"=>false,"message"=>"Login berhasil");
+			$ret = array("error"=>false,"message"=>"Login Sukses");
 		}
 		else {
-			$ret = array("error"=>true,"message"=>"Login gagal. Username tidak dikenali");
+			$ret = array("error"=>true,"message"=>"Login Gagal. Username tidak dikenali");
 		}
 
 		echo json_encode($ret);

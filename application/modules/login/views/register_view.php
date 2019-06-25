@@ -16,7 +16,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 		
 		<!-- Title -->
-		<title>SISTEM PENDUKUNG KEPUTUSAN</title>
+		<title>SISTEM PAKAR</title>
 		<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/fonts/fonts/font-awesome.min.css">
 		
 		<!-- Font Family -->
@@ -79,8 +79,8 @@
 									
 									<div class="col-md-6">
 										<div class="form-group">
-										<label for="username" class="form-label">Nama lengkap</label>
-										<input type="text" class="form-control" id="nama" name="nama"  placeholder="Nama lengkap">
+										<label for="username" class="form-label">Nama Lengkap</label>
+										<input type="text" class="form-control" id="nama" name="nama"  placeholder="Nama Lengkap">
 									</div>
 									</div>
 									<div class="col-md-6">

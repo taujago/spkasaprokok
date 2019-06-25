@@ -1,6 +1,6 @@
 <div class="card">
 <div class="card-header">
-	<h3 class="card-title">DATA DIAGNOSA </h3>
+	<h3 class="card-title">HASIL DIAGNOSA </h3>
 </div>
 <div class="card-body">
 

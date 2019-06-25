@@ -1,6 +1,6 @@
 <div class="card">
 <div class="card-header">
-	<h3 class="card-title">DATA KONSULTASI </h3>
+	<h3 class="card-title">DATA KONSULTASI</h3>
 </div>
 
 <div class="table-responsive mb-5">

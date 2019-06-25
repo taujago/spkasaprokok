@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sistem Pendukung Keputusan </title>
+  <title>Sistem Pakar</title>
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url("landing"); ?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

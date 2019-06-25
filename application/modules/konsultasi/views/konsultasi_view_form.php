@@ -74,12 +74,8 @@
 
 </div>		
 
-<div class="row mt-3">
 	<div class="col-md-6">
-   <button type="reset" class="btn btn-danger btn-block">RESET </button>
-	</div>
-	<div class="col-md-6">
-   <button type="submit" class="btn btn-primary btn-block">LANJUTKAN </button>
+   <button type="submit" class="btn btn-primary btn-block">DIAGNOSA </button>
 	</div>
 </div>
 
