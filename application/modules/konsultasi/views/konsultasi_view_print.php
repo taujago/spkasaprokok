@@ -1,6 +1,6 @@
 <body onload="window.print();">
 <center>
-	<h3>Sistem Pakar Diagnosa Penyakit yang disebabkan oleh asap rokok. <br />Menggunakan Methode CBR ( Case Based Reasoning ) </h3>
+	<h3>Sistem Pakar Diagnosa Penyakit yang disebabkan oleh Asap Rokok. <br />Menggunakan Metode CBR ( Case Based Reasoning ) </h3>
 </center>
 <hr />
 <br />
@@ -40,7 +40,7 @@
 // show_array($penyakit);
 $image = (empty($penyakit->gambar))?"noimage.png":$penyakit->gambar;
 ?>
-<img width="50%" src="<?php echo base_url("uploads/$image"); ?>" />
+<img width="30%" src="<?php echo base_url("uploads/$image"); ?>" />
 
  	<br />
  	<br />
