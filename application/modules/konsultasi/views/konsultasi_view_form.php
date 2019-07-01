@@ -84,6 +84,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#gejala_id").select2();
+
+	
 });
 </script>
 

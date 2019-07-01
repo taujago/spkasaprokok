@@ -8,8 +8,9 @@
 
 		</tr>
 		<tr>
-			<th>P </th>
+			
 			<th>L </th>
+			<th>P </th>
 		</tr>
 	</thead>
 	<tbody>
