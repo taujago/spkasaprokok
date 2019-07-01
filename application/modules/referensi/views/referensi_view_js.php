@@ -44,7 +44,7 @@ $("#gejala_id").select2();
 
 	function tambahbaru(){
 		$("#formModal").modal('show');
-		$("#judul").html('TAMBAH DATA PENYAKIT LAMA ');
+		$("#judul").html('TAMBAH DATA KASUS LAMA ');
 		$("#kode").val('');
 		$("#penyakit").val('');
 		v_url = '<?php echo site_url("$this->controller/save") ?>';

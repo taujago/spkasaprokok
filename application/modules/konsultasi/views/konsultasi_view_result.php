@@ -38,7 +38,7 @@
 			<TH>Penyakit</TH>
 			<th>Pencegahan </th>
 			<th>Pengobatan</th>
-			<th>Bobot</th>
+			<th>Nilai CBR</th>
 		</tr>
 	</thead>
 	<tbody>

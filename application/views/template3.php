@@ -147,7 +147,7 @@ if($_SESSION['userdata'][0]['level']== 1) :
 									<a href="<?php echo site_url("penyakit") ?>" class="slide-item">PENYAKIT </a>
 								</li>
 								<li>
-									<a href="<?php echo site_url("penyakit/pengetahuan") ?>" class="slide-item">BASIS PENGETAHUAN</a>
+									<a href="<?php echo site_url("penyakit/pengetahuan") ?>" class="slide-item">PERSAMAAN JENIS PENYAKIT DAN GEJALA</a>
 								</li>
 								<li>
 									<a href="<?php echo site_url("referensi") ?>" class="slide-item">KASUS LAMA</a>

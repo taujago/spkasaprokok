@@ -26,7 +26,7 @@ class referensi extends master_controller {
 		 
 		$content = $this->load->view($this->controller."_view",$data_array,true);
 
-		$this->set_title("DATA   PENYAKIT LAMA ");
+		$this->set_title("DATA   KASUS LAMA ");
 		$this->set_content($content);
 		$this->render();
 	}
