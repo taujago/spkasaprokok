@@ -94,8 +94,14 @@ endforeach;
 // ambil data referensi pasien lama 
   $this->db->select("r.*, p.penyakit, p.pengobatan, p.keterangan")
   ->from('referensi r')
-  ->join('penyakit p','p.id = r.penyakit_id');
+  ->join('referensi_detail rd','rd.referensi_id = r.id')
+  ->join('penyakit p','p.id = r.penyakit_id')
+  ->group_by("r.id");
   $res = $this->db->get();
+
+  if($res->num_rows() == 0 ) {
+    echo "data referensi penyakit lama belum ada. silahkan diinputkan " ; exit;
+  }
 
   $arr_ref = array();
 
@@ -178,27 +184,44 @@ $this->db->order_by("cast(substring(kode,3,3) as SIGNED )",true);
 $data_array['rec_gejala_hasil'] = $this->db->get();
 // echo $this->db->last_query();exit;
 // ambil data penyakit hasil 
-$id_penyakit = "";
+$id_referensi = "";
 $skor = "";
+
+$this->db->query("delete from tmp");
 foreach($arr_hasil as $xy => $hasil): 
-	$id_penyakit = $xy; 
-  $skor = $hasil;
-	break;
+	// $id_referensi = $xy; 
+ //  $skor = $hasil;
+	// break;
+  $this->db->insert("tmp",array("id_penyakit"=>$xy,"skor"=>$hasil));
+
 endforeach;
+
+$sql = "select * from tmp where skor = (select max(skor) from tmp)
+";
+
+$res = $this->db->query($sql); 
+
+$data = $res->row();
+
+$id_referensi = $data->id_penyakit;
+
+// echo "id referensi ". $id_referensi; exit;
+
 
 // echo "id penyakit ". $id_penyakit; exit;
 
 
 // echo "id penyakit $id_penyakit"; exit;
-$this->db->where("id",$arr_ref[$id_penyakit]['penyakit_id']);
+$this->db->where("id",$arr_ref[$id_referensi]['penyakit_id']);
 $data_array['penyakit'] = $this->db->get("penyakit")->row();
-// show_array($data_array['penyakit']);
-// echo $this->db->last_query(); exit;
+
+// show_array($data_array['penyakit']); exit;
+ 
 $data_array['penyakit']->skor = $skor;
 
 // terakhir update id penyakit ke data  pemeriksaan 
 $this->db->where("id",$id);
-$this->db->update("pemeriksaan",array("penyakit_id"=>$arr_ref[$id_penyakit]['penyakit_id']));
+$this->db->update("pemeriksaan",array("penyakit_id"=>$arr_ref[$id_referensi]['penyakit_id']));
 
 
 $_SESSION['data_array'] = $data_array;
