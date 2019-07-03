@@ -113,9 +113,7 @@
 											<span class="text-white"><?php echo $_SESSION['userdata'][0]['nama']; ?></span>
 										</span>
 									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-										<a class="dropdown-item" href="#"><i class="dropdown-icon mdi mdi-account-outline"></i> Ganti password</a>
-										 
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">			 
 										<a class="dropdown-item" href="<?php echo site_url("login/logout") ?>"><i class="dropdown-icon mdi mdi-logout-variant"></i> Keluar</a>
 									</div>
 								</div>

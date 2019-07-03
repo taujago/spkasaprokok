@@ -203,7 +203,7 @@ function hapus($id) {
 		$this->db->delete("pengetahuan");
 
 
-		$ret = array("error"=>false,"message"=>"Data harga berhasil dihapus");
+		$ret = array("error"=>false,"message"=>"Data penyakit berhasil dihapus");
 	}
 	else {
 		$ret = array("error"=>true,"message"=>"Data gagal dihapus".mysql_error());

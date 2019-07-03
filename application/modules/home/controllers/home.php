@@ -25,7 +25,7 @@ class home extends master_controller {
 		 
 		$content = $this->load->view("gantipass_view",$data_array,true);
 
-		$this->set_title("GANTI PASSWORD");
+		$this->set_title("");
 		$this->set_content($content);
 		$this->render();
 	}
