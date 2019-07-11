@@ -74,9 +74,11 @@ $this->db->where("pemeriksaan_id",$id);
 $rs = $this->db->get("pemeriksaan_detail");
 foreach($rs->result() as $r): 
 	$post['gejala_id'][] = $r->gejala_id;
+
 endforeach;
 
 
+$data_array['post'] = $post;
 
 
 // buat referensi array gejala 
@@ -84,10 +86,12 @@ $res = $this->db->get("gejala");
 $ref_gejala = array();
 foreach($res->result() as $rg): 
 	$ref_gejala[$rg->id] = $rg->bobot;
+  
+  $data_gejala[$rg->id] = array("kode"=>$rg->kode,"bobot"=>$rg->bobot);
 endforeach;
 
  
-
+$data_array['data_gejala'] = $data_gejala;
  
 	 // redirect("konsultasi/detail/$id_pemeriksaan");
 
@@ -138,6 +142,8 @@ endforeach;
         
   			 
   			 $tmp += $arr_ref[$row->id]['kemiripan'][$gejala_id] * $bobot;
+
+        $arr_ref[$row->id]['jumlah'][$gejala_id] =  $arr_ref[$row->id]['kemiripan'][$gejala_id] * $bobot;
   			 $total_bobot += $bobot;
   		endforeach;
   		$arr_ref[$row->id]['score'] = $tmp / $total_bobot;
@@ -225,6 +231,9 @@ $this->db->update("pemeriksaan",array("penyakit_id"=>$arr_ref[$id_referensi]['pe
 
 
 $_SESSION['data_array'] = $data_array;
+
+
+
 
 $content = $this->load->view($this->controller."_view_result",$data_array,true);
 
