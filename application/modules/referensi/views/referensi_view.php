@@ -11,7 +11,9 @@
 	<table id="tabel" class="table card-table table-vcenter text-nowrap">
 		<thead >
 			<tr>
+				
 				<th width="5%">NO </th>
+				<th width="5%">KODE </th>
 				<th width="10%">NAMA </th>
 				<th width="5%">UMUR</th>
 				<th width="5%">JK</th>
@@ -30,6 +32,7 @@ foreach($record->result() as $row) :
 ?>
 			<tr>
 				<th scope="row"><?php echo $n ?></th>
+				<td><?php echo $row->kode; ?></td>
 				<td><?php echo $row->nama; ?></td>
 				<td><?php echo $row->umur; ?></td>
 				<td><?php echo $row->jk; ?></td>
@@ -39,7 +42,7 @@ foreach($record->result() as $row) :
 				
 				 
 				<td>
-					<a href="#!"  onclick="edit('<?php echo $row->id; ?>','<?php echo $row->nama; ?>','<?php echo $row->umur; ?>','<?php echo $row->jk; ?>');"  class="btn btn-warning text-light"><i class="fa fa-pencil"></i>Edit</a>
+					<a href="#!"  onclick="edit('<?php echo $row->id; ?>','<?php echo $row->kode; ?>','<?php echo $row->nama; ?>','<?php echo $row->umur; ?>','<?php echo $row->jk; ?>');"  class="btn btn-warning text-light"><i class="fa fa-pencil"></i>Edit</a>
 					<a href="#!" onclick="hapus('<?php echo $row->id; ?>');"  class="btn btn-danger text-light"><i class="fa fa-trash"></i>Hapus	</a>
 </td>
 			</tr>
@@ -61,6 +64,10 @@ foreach($record->result() as $row) :
 			</div>
 			<div class="modal-body">
 				<form id="frmkriteria">
+					<div class="form-group">
+						<label for="kode" class="form-control-label">Kode </label>
+						<input type="text" name="kode" class="form-control" id="kode" placeholder="Kode ">
+					</div>  
 					<div class="form-group">
 						<label for="nama" class="form-control-label">Nama </label>
 						<input type="text" name="nama" class="form-control" id="nama" placeholder="Nama ">

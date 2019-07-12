@@ -70,7 +70,7 @@ $("#gejala_id").select2();
 
 
 
-function edit(id,nama,umur,jk){
+function edit(id,kode,nama,umur,jk){
 	$("#judul").html('EDIT DATA PENYAKIT LAMA ');
 	
 	v_url = '<?php echo site_url("$this->controller/update") ?>';
@@ -79,6 +79,7 @@ function edit(id,nama,umur,jk){
 
 	$("#id").val(id);
 	$("#nama").val(nama);
+	$("#kode").val(kode);
 	$("#umur").val(umur);
 	$("#jk").val(jk).attr('selected','selected');
  	$("#formModal").modal('show');
